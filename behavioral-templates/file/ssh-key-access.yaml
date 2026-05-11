@@ -18,7 +18,10 @@ matchers:
       - /.ssh/
       - /id_rsa
       - /id_ed25519
+      - /id_ecdsa
+      - /id_dsa
       - /authorized_keys
+      - /known_hosts
     condition: or
 
 matchers-condition: and

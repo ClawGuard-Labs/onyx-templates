@@ -38,6 +38,8 @@ matchers:
       - /.kube/config
       - /var/run/secrets/kubernetes.io/serviceaccount/token
       - /run/secrets/
+      - /.config/gcloud/application_default_credentials
+      - /.config/gcloud/legacy_credentials
     condition: or
 
   # Only fire when the session is confirmed to contain an AI process.

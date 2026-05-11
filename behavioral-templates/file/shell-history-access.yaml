@@ -1,0 +1,24 @@
+id: shell_history_access
+info:
+  name: Shell History Access
+  author: sl4y3r
+  severity: medium
+  description: >
+    A process read or opened a shell history file (.bash_history, .zsh_history,
+    .fish_history, .sh_history). Common credential-harvesting target — operators
+    paste tokens and passwords into shells that record them here.
+  tags: [ai, credentials, filesystem, history]
+  risk-score: 35
+
+matchers:
+  - type: event-type
+    values: [file_open, file_rw]
+
+  - type: filepath
+    regex: '/\.(bash|zsh|fish|sh)_history$'
+
+  - type: session
+    field: has_ai_process
+    equals: true
+
+matchers-condition: and
